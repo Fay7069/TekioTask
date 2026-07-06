@@ -1,0 +1,977 @@
+/* ============================================================
+   TekioTask — Global Stylesheet
+   File: public/css/tekiotask.css
+   ============================================================ */
+
+/* ══════════════════════════════════════════════════════════
+   1. RESET & BASE
+══════════════════════════════════════════════════════════ */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f0f4f8;
+    min-height: 100vh;
+    color: #111827;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ══════════════════════════════════════════════════════════
+   2. LAYOUT — SIDEBAR + MAIN
+══════════════════════════════════════════════════════════ */
+.app-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ── Sidebar ── */
+.sidebar {
+    width: 220px;
+    background: #fff;
+    border-right: 1px solid #e5e7eb;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 100;
+}
+
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 20px 24px;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.sidebar-brand .brand-icon {
+    width: 36px;
+    height: 36px;
+    background: #2563eb;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 18px;
+}
+
+.sidebar-brand .brand-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1e3a5f;
+}
+
+.sidebar-nav {
+    flex: 1;
+    padding: 16px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.sidebar-footer {
+    padding: 16px 12px;
+    border-top: 1px solid #f3f4f6;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+/* Nav links */
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    color: #6b7280;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+}
+
+.nav-link:hover {
+    background: #f3f4f6;
+    color: #111827;
+}
+
+.nav-link.active {
+    background: #eff6ff;
+    color: #2563eb;
+    font-weight: 600;
+}
+
+/* ── Main content area ── */
+.main {
+    margin-left: 220px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ── Top bar ── */
+.topbar {
+    background: #fff;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 14px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.topbar-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1e3a5f;
+}
+
+.topbar-user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.topbar-user .avatar {
+    width: 36px;
+    height: 36px;
+    background: #2563eb;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.topbar-user .user-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.role-badge {
+    font-size: 11px;
+    background: #eff6ff;
+    color: #2563eb;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.role-badge.teacher    { background: #f0fdf4; color: #16a34a; }
+.role-badge.parent     { background: #fdf4ff; color: #9333ea; }
+.role-badge.admin      { background: #fff7ed; color: #ea580c; }
+.role-badge.therapist  { background: #fef2f2; color: #dc2626; }
+.role-badge.superadmin { background: #f8fafc; color: #475569; }
+
+/* ── Page content wrapper ── */
+.content {
+    padding: 28px;
+    flex: 1;
+}
+
+/* ── Page actions row ── */
+.page-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+/* ══════════════════════════════════════════════════════════
+   3. CARDS
+══════════════════════════════════════════════════════════ */
+.card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.card-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1e3a5f;
+}
+
+.mb-3 { margin-bottom: 12px; }
+.mb-2 { margin-bottom: 8px; }
+
+/* ══════════════════════════════════════════════════════════
+   4. BUTTONS
+══════════════════════════════════════════════════════════ */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+}
+
+.btn-primary        { background: #2563eb; color: #fff; }
+.btn-primary:hover  { background: #1d4ed8; }
+
+.btn-success        { background: #16a34a; color: #fff; }
+.btn-success:hover  { background: #15803d; }
+
+.btn-warning        { background: #d97706; color: #fff; }
+.btn-warning:hover  { background: #b45309; }
+
+.btn-danger         { background: #dc2626; color: #fff; }
+.btn-danger:hover   { background: #b91c1c; }
+
+.btn-outline        { background: #fff; color: #374151; border: 1.5px solid #d1d5db; }
+.btn-outline:hover  { background: #f9fafb; }
+
+.btn-lg  { padding: 14px 28px; font-size: 16px; border-radius: 12px; }
+.btn-full { width: 100%; justify-content: center; }
+
+/* ══════════════════════════════════════════════════════════
+   5. FORMS
+══════════════════════════════════════════════════════════ */
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1.5px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #111827;
+    outline: none;
+    transition: border-color 0.2s;
+    font-family: inherit;
+    background: #fff;
+}
+
+/* Password field with show/hide button needs right padding */
+.form-group input[type="password"],
+.form-group input[type="text"] {
+    padding-right: 56px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #2563eb;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.form-hint {
+    font-size: 12px;
+    color: #9ca3af;
+    margin-top: 4px;
+}
+
+.pref-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #f3f4f6;
+    font-size: 14px;
+    color: #374151;
+}
+.pref-row:last-child { border-bottom: none; }
+
+/* ══════════════════════════════════════════════════════════
+   6. ALERTS & MESSAGES
+══════════════════════════════════════════════════════════ */
+.alert {
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 13px;
+    margin-bottom: 16px;
+}
+
+.alert-error   { background: #fef2f2; border: 1px solid #fca5a5; color: #dc2626; }
+.alert-success { background: #f0fdf4; border: 1px solid #86efac; color: #16a34a; }
+.alert-warning { background: #fffbeb; border: 1px solid #fcd34d; color: #d97706; }
+.alert-info    { background: #eff6ff; border: 1px solid #93c5fd; color: #2563eb; }
+
+.alert-banner {
+    background: #fef2f2;
+    border: 1px solid #fca5a5;
+    border-radius: 10px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 12px;
+}
+.alert-banner .alert-text { font-size: 14px; color: #dc2626; font-weight: 600; }
+
+/* ══════════════════════════════════════════════════════════
+   7. LOGIN PAGE
+══════════════════════════════════════════════════════════ */
+.login-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #f0f4f8;
+    padding: 20px;
+}
+
+.login-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.login-brand .brand-icon {
+    width: 40px;
+    height: 40px;
+    background: #2563eb;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 20px;
+}
+
+.login-brand .brand-name {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1e3a5f;
+}
+
+.login-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 36px 32px;
+    width: 100%;
+    max-width: 440px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+.login-card h2 {
+    font-size: 20px;
+    color: #1e3a5f;
+    margin-bottom: 4px;
+    text-align: center;
+}
+
+.login-card p {
+    font-size: 13px;
+    color: #6b7280;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login-tagline {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #9ca3af;
+    text-align: center;
+}
+
+.role-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.role-btn {
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    background: #fff;
+    padding: 12px 8px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: #374151;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.role-btn:hover { border-color: #2563eb; background: #eff6ff; color: #2563eb; }
+.role-btn.active { border-color: #2563eb; background: #2563eb; color: #fff; }
+
+.forgot-link {
+    display: block;
+    text-align: center;
+    font-size: 13px;
+    color: #2563eb;
+    margin-top: 12px;
+}
+.forgot-link:hover { text-decoration: underline; }
+
+/* ══════════════════════════════════════════════════════════
+   8. DASHBOARD GRIDS
+══════════════════════════════════════════════════════════ */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.col-full { grid-column: 1 / -1; }
+
+/* ══════════════════════════════════════════════════════════
+   9. PROGRESS BAR
+══════════════════════════════════════════════════════════ */
+.progress-bar-wrap {
+    background: #e5e7eb;
+    border-radius: 99px;
+    height: 8px;
+    margin-bottom: 16px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: #2563eb;
+    border-radius: 99px;
+    transition: width 0.4s;
+}
+
+/* ══════════════════════════════════════════════════════════
+   10. STUDENT — ROUTINE CARD
+══════════════════════════════════════════════════════════ */
+.routine-name {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1e3a5f;
+    margin-bottom: 6px;
+}
+
+.routine-sub {
+    font-size: 13px;
+    color: #6b7280;
+    margin-bottom: 14px;
+}
+
+/* ══════════════════════════════════════════════════════════
+   11. STUDENT — REWARDS
+══════════════════════════════════════════════════════════ */
+.points-big {
+    font-size: 48px;
+    font-weight: 800;
+    color: #1e3a5f;
+    line-height: 1;
+}
+
+.points-label {
+    font-size: 13px;
+    color: #6b7280;
+    margin-bottom: 16px;
+}
+
+.badges-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.badge-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.badge-icon {
+    width: 48px;
+    height: 48px;
+    background: #eff6ff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 700;
+    color: #2563eb;
+}
+
+.badge-name {
+    font-size: 10px;
+    color: #6b7280;
+    text-align: center;
+}
+
+/* ══════════════════════════════════════════════════════════
+   12. STUDENT — WEEKLY CHART
+══════════════════════════════════════════════════════════ */
+.chart-wrap {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    height: 100px;
+}
+
+.bar-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    height: 100%;
+    justify-content: flex-end;
+}
+
+.bar {
+    width: 100%;
+    background: #2563eb;
+    border-radius: 6px 6px 0 0;
+    min-height: 4px;
+    transition: height 0.4s;
+}
+
+.bar.empty { background: #e5e7eb; }
+.bar-label { font-size: 11px; color: #9ca3af; }
+
+.chart-summary {
+    margin-top: 12px;
+    font-size: 13px;
+    color: #6b7280;
+    text-align: center;
+}
+
+/* ══════════════════════════════════════════════════════════
+   13. MOTIVATIONAL BANNER
+══════════════════════════════════════════════════════════ */
+.motivation-banner {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    border-radius: 14px;
+    padding: 20px 28px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.motivation-text { font-size: 18px; font-weight: 600; text-align: center; }
+
+/* ══════════════════════════════════════════════════════════
+   14. STUDENT — ROUTINE VIEW (Timer screen)
+
+   FIX: Canvas is 220x220. Wrapper must match exactly.
+   timer-label uses position:absolute + transform:translate(-50%,-50%)
+   for perfect centering independent of text length.
+══════════════════════════════════════════════════════════ */
+.routine-view {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 20px 0;
+}
+
+.task-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: #1e3a5f;
+    text-align: center;
+}
+
+/* Wrapper: same dimensions as the canvas element (220×220) */
+.timer-canvas-wrap {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    margin: 0 auto;
+}
+
+/* Canvas fills the wrapper exactly */
+.timer-canvas-wrap canvas {
+    display: block;
+    width: 220px;
+    height: 220px;
+}
+
+/* Label centered perfectly over the canvas */
+.timer-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    pointer-events: none;
+    width: 140px;
+}
+
+.timer-time {
+    font-size: 34px;
+    font-weight: 800;
+    color: #1e3a5f;
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+.timer-sub {
+    font-size: 11px;
+    font-weight: 600;
+    color: #9ca3af;
+    letter-spacing: 2px;
+    margin-top: 5px;
+    text-transform: uppercase;
+}
+
+.task-action-row {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.task-action-row .btn {
+    flex: 1;
+    justify-content: center;
+    font-size: 16px;
+    padding: 16px;
+}
+
+.task-progress-indicator {
+    font-size: 13px;
+    color: #6b7280;
+    text-align: center;
+}
+
+/* ══════════════════════════════════════════════════════════
+   15. TEACHER — VISUAL ROUTINE MAP
+══════════════════════════════════════════════════════════ */
+.student-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 16px;
+}
+
+.student-tile {
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 2px solid transparent;
+}
+
+.student-tile:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+
+.student-tile.done     { background: #f0fdf4; border-color: #86efac; }
+.student-tile.progress { background: #fffbeb; border-color: #fcd34d; }
+.student-tile.stuck    { background: #fef2f2; border-color: #fca5a5; }
+
+.student-tile .tile-avatar {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: #e5e7eb;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; font-weight: 700; color: #6b7280;
+}
+
+.student-tile.done     .tile-avatar { background: #dcfce7; color: #16a34a; }
+.student-tile.progress .tile-avatar { background: #fef9c3; color: #d97706; }
+.student-tile.stuck    .tile-avatar { background: #fee2e2; color: #dc2626; }
+
+.tile-name   { font-size: 13px; font-weight: 700; color: #1e3a5f; text-align: center; }
+.tile-status { font-size: 11px; color: #6b7280; text-align: center; }
+
+.stats-row {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.stat-chip {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 99px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.stat-chip.done     { background: #dcfce7; color: #16a34a; }
+.stat-chip.progress { background: #fef9c3; color: #d97706; }
+.stat-chip.stuck    { background: #fee2e2; color: #dc2626; }
+
+/* ══════════════════════════════════════════════════════════
+   16. TABLES
+══════════════════════════════════════════════════════════ */
+.table-wrap { overflow-x: auto; }
+
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+
+thead th {
+    text-align: left;
+    padding: 10px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+tbody td {
+    padding: 12px 14px;
+    border-bottom: 1px solid #f3f4f6;
+    color: #374151;
+}
+
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: #f9fafb; }
+
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 10px;
+    border-radius: 99px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.status-pill.complete { background: #dcfce7; color: #16a34a; }
+.status-pill.failed   { background: #fee2e2; color: #dc2626; }
+.status-pill.skipped  { background: #f3f4f6; color: #6b7280; }
+.status-pill.progress { background: #fef9c3; color: #d97706; }
+
+/* ══════════════════════════════════════════════════════════
+   17. MICRO-STEP VIEW
+══════════════════════════════════════════════════════════ */
+.microstep-header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.microstep-header h2 {
+    font-size: 26px;
+    font-weight: 800;
+    color: #1e3a5f;
+    margin-bottom: 4px;
+}
+
+.microstep-header p { font-size: 14px; color: #6b7280; }
+
+.microstep-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.microstep-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    min-height: 56px;
+}
+
+.microstep-item.checked { border-color: #86efac; background: #f0fdf4; }
+
+.microstep-item input[type="checkbox"] {
+    width: 20px; height: 20px;
+    accent-color: #16a34a;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.microstep-item label { font-size: 15px; color: #374151; cursor: pointer; flex: 1; }
+.microstep-item.checked label { color: #16a34a; text-decoration: line-through; }
+
+/* ══════════════════════════════════════════════════════════
+   18. EMPTY STATE
+══════════════════════════════════════════════════════════ */
+.empty-state {
+    text-align: center;
+    padding: 40px 24px;
+    color: #9ca3af;
+    font-size: 14px;
+    border: 2px dashed #e5e7eb;
+    border-radius: 12px;
+}
+.empty-state a { color: #2563eb; }
+
+/* ══════════════════════════════════════════════════════════
+   19. TASK ROW (Teacher routine builder)
+══════════════════════════════════════════════════════════ */
+.task-row { margin-bottom: 12px; }
+
+.micro-step-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+    align-items: center;
+}
+
+/* ══════════════════════════════════════════════════════════
+   20. UTILITY CLASSES
+══════════════════════════════════════════════════════════ */
+.mt-3  { margin-top: 12px; }
+.mt-4  { margin-top: 16px; }
+.mt-8  { margin-top: 32px; }
+.mb-2  { margin-bottom: 8px; }
+.mb-3  { margin-bottom: 12px; }
+.mb-4  { margin-bottom: 16px; }
+.mb-8  { margin-bottom: 32px; }
+.text-center { text-align: center; }
+.text-muted  { color: #6b7280; font-size: 13px; }
+.text-bold   { font-weight: 700; }
+.flex        { display: flex; }
+.flex-center { display: flex; align-items: center; justify-content: center; }
+.gap-1       { gap: 4px; }
+.gap-2       { gap: 8px; }
+.gap-3       { gap: 12px; }
+.gap-4       { gap: 16px; }
+.w-full      { width: 100%; }
+
+/* ══════════════════════════════════════════════════════════
+   21. ACCESSIBILITY MODES
+══════════════════════════════════════════════════════════ */
+
+/* High contrast */
+body.a11y-high-contrast {
+    background: #000 !important;
+    color: #fff !important;
+}
+body.a11y-high-contrast .card,
+body.a11y-high-contrast .sidebar,
+body.a11y-high-contrast .topbar {
+    background: #1a1a1a !important;
+    border-color: #555 !important;
+    color: #fff !important;
+}
+body.a11y-high-contrast .btn-primary {
+    background: #ffff00 !important;
+    color: #000 !important;
+}
+body.a11y-high-contrast .nav-link,
+body.a11y-high-contrast .text-muted {
+    color: #ccc !important;
+}
+body.a11y-high-contrast .card-title,
+body.a11y-high-contrast .topbar-title,
+body.a11y-high-contrast .routine-name,
+body.a11y-high-contrast .task-title,
+body.a11y-high-contrast .timer-time,
+body.a11y-high-contrast .points-big {
+    color: #fff !important;
+}
+body.a11y-high-contrast .form-group input,
+body.a11y-high-contrast .form-group select,
+body.a11y-high-contrast .form-group textarea {
+    background: #222 !important;
+    color: #fff !important;
+    border-color: #fff !important;
+}
+
+/* Large buttons (min 60×60px touch targets) */
+body.a11y-large-buttons .btn {
+    min-height: 60px;
+    min-width: 60px;
+    font-size: 18px !important;
+    padding: 14px 24px !important;
+}
+body.a11y-large-buttons .btn-lg {
+    min-height: 72px;
+    font-size: 22px !important;
+    padding: 18px 32px !important;
+}
+
+/* Text sizes */
+body.text-size-14 { font-size: 14px; }
+body.text-size-16 { font-size: 16px; }
+body.text-size-18 { font-size: 18px; }
+body.text-size-20 { font-size: 20px; }
+body.text-size-24 { font-size: 24px; }
+
+/* Student-facing buttons always large */
+.routine-view .btn {
+    min-height: 64px;
+    min-width: 140px;
+    font-size: 20px;
+}
+
+/* ══════════════════════════════════════════════════════════
+   22. RESPONSIVE
+══════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+    .sidebar { display: none; }
+    .main    { margin-left: 0; }
+
+    .dashboard-grid { grid-template-columns: 1fr; }
+    .col-full       { grid-column: 1; }
+
+    .student-grid { grid-template-columns: repeat(2, 1fr); }
+
+    .topbar  { padding: 12px 16px; }
+    .content { padding: 16px; }
+
+    .login-card { padding: 24px 20px; }
+
+    .task-action-row { flex-direction: column; }
+    .stats-row       { flex-wrap: wrap; }
+
+    .timer-canvas-wrap { width: 180px; height: 180px; }
+    .timer-canvas-wrap canvas { width: 180px; height: 180px; }
+    .timer-time { font-size: 28px; }
+}
